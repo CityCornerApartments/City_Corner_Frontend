@@ -1,0 +1,33 @@
+{
+  "name": "e2e",
+  "$schema": "../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "e2e/src",
+  "projectType": "application",
+  "targets": {
+    "e2e": {
+      "executor": "@nx/cypress:cypress",
+      "options": {
+        "cypressConfig": "e2e/cypress.config.ts",
+        "devServerTarget": "city-corner-frontend:serve:development",
+        "testingType": "e2e"
+      },
+      "configurations": {
+        "production": {
+          "devServerTarget": "city-corner-frontend:serve:production"
+        },
+        "ci": {
+          "devServerTarget": "city-corner-frontend:serve-static"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nx/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["e2e/**/*.{js,ts}"]
+      }
+    }
+  },
+  "tags": [],
+  "implicitDependencies": ["city-corner-frontend"]
+}
