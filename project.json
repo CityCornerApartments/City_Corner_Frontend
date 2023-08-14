@@ -19,7 +19,8 @@
         "styles": ["src/styles.css"],
         "scripts": [],
         "isolatedConfig": true,
-        "webpackConfig": "webpack.config.js"
+        "webpackConfig": "webpack.config.js",
+        "postcssConfig": "postcss.config.js"
       },
       "configurations": {
         "development": {
@@ -85,6 +86,49 @@
         "ci": {
           "ci": true,
           "codeCoverage": true
+        }
+      }
+    },
+    "storybook": {
+      "executor": "@nx/storybook:storybook",
+      "options": {
+        "port": 4400,
+        "configDir": "./.storybook"
+      },
+      "configurations": {
+        "ci": {
+          "quiet": true
+        }
+      }
+    },
+    "build-storybook": {
+      "executor": "@nx/storybook:build",
+      "outputs": ["{options.outputDir}"],
+      "options": {
+        "outputDir": "dist/storybook/city-corner-frontend",
+        "configDir": "./.storybook"
+      },
+      "configurations": {
+        "ci": {
+          "quiet": true
+        }
+      }
+    },
+    "test-storybook": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "test-storybook -c ./.storybook --url=http://localhost:4400"
+      }
+    },
+    "static-storybook": {
+      "executor": "@nx/web:file-server",
+      "options": {
+        "buildTarget": "city-corner-frontend:build-storybook",
+        "staticFilePath": "dist/storybook/city-corner-frontend"
+      },
+      "configurations": {
+        "ci": {
+          "buildTarget": "city-corner-frontend:build-storybook:ci"
         }
       }
     }
