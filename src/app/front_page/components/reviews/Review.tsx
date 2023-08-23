@@ -1,13 +1,17 @@
 import { Card, Avatar } from 'antd';
+import Flag from 'react-world-flags';
+
+export type Countries = 'HU' | 'SK' | 'CZ';
 
 export interface ReviewProps {
   name: string;
   date: Date | string;
   reviewNumber: number;
   reviewText: string;
+  country: Countries;
 }
 
-export const Review = ({ name, date, reviewNumber, reviewText }: ReviewProps) => {
+export const Review = ({ name, date, reviewNumber, reviewText, country }: ReviewProps) => {
   const roundedNumber = Math.round(reviewNumber * 10) / 10;
   const dateObj = typeof date === 'object' ? date : new Date(date);
 
@@ -21,7 +25,11 @@ export const Review = ({ name, date, reviewNumber, reviewText }: ReviewProps) =>
             </Avatar>
             <div>
               <div className={'text-lg font-semibold'}>{name}</div>
-              <div className={'text-xs opacity-80'}>{dateObj.toLocaleDateString()}</div>
+              <div className={'flex gap-2'}>
+                <span className={'text-xs opacity-80'}> {dateObj.toLocaleDateString()}</span>
+                {/* https://github.com/smucode/react-world-flags */}
+                <Flag code={country} height={20} width={20} />
+              </div>
             </div>
           </div>
           <div className={'bg-color-booking text-color-white rounded-r-md rounded-tl-md'}>

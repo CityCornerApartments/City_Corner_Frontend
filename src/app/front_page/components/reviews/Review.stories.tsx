@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta } from '@storybook/react';
 import { Review } from './Review';
 
 const meta: Meta<typeof Review> = {
@@ -7,6 +7,9 @@ const meta: Meta<typeof Review> = {
   argTypes: {
     date: {
       control: 'date',
+    },
+    country: {
+      options: ['HU', 'CZ', 'SK'],
     },
   },
 };
@@ -35,5 +38,6 @@ export const Primary = {
       '\n' +
       'Minden összességében fantasztikus élmény volt, és szívesen visszatérnénk ide. Nagyon ajánlom ezt ' +
       'az apartmant mindenkinek, aki egy nyugodt és komfortos helyet keres a pihenéshez és a kikapcsolódáshoz.',
+    country: 'HU',
   },
 };
