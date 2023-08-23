@@ -1,23 +1,31 @@
 import { Card, Avatar } from 'antd';
 import Flag from 'react-world-flags';
+import { Review } from './Review';
 
-export type Countries = 'HU' | 'SK' | 'CZ';
-
-export interface ReviewProps {
-  name: string;
-  date: Date | string;
-  reviewNumber: number;
-  reviewText: string;
-  country: Countries;
+export interface ReviewCardProps {
+  review: Review;
+  updateHoverCounter?: (number) => void;
 }
 
-export const Review = ({ name, date, reviewNumber, reviewText, country }: ReviewProps) => {
+export const ReviewCard = ({ review, updateHoverCounter }: ReviewCardProps) => {
+  const { name, country, reviewNumber, date, reviewText } = review;
+
   const roundedNumber = Math.round(reviewNumber * 10) / 10;
   const dateObj = typeof date === 'object' ? date : new Date(date);
+  const isLongReviewText = review.reviewText.length > 600;
 
   return (
-    <div className={'min-w-[12rem] max-w-[30rem] group'}>
-      <Card className={'transition group-hover:shadow-lg group-hover:-translate-y-1 '}>
+    <div
+      className={'min-w-[25rem] max-w-[30rem] max-h-[170px] group hover:z-20'}
+      onMouseEnter={() => updateHoverCounter(1)}
+      onMouseLeave={() => updateHoverCounter(-1)}
+    >
+      <Card
+        className={
+          'transition group-hover:shadow-lg group-hover:-translate-y-1 group-hover:max-w-[40rem]' +
+          (isLongReviewText ? ' group-hover:w-[40rem]' : '')
+        }
+      >
         <div className={'flex justify-between items-center'}>
           <div className={'flex items-center gap-2'}>
             <Avatar shape={'circle'} size={'large'}>

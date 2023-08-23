@@ -1,9 +1,9 @@
 import type { Meta } from '@storybook/react';
-import { Review } from './Review';
+import { ReviewCard } from './ReviewCard';
 
-const meta: Meta<typeof Review> = {
-  component: Review,
-  title: 'Review',
+const meta: Meta<typeof ReviewCard> = {
+  component: ReviewCard,
+  title: 'Review Card',
   argTypes: {
     date: {
       control: 'date',
