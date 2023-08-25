@@ -2,8 +2,8 @@ import { useState } from 'react';
 import ReviewPanelRow from './ReviewPanelRow';
 import { Review } from './Review';
 
-const reviews: { first: Review[]; second: Review[]; third: Review[] } = {
-  first: [
+const reviews: { hungarian: Review[]; english: Review[]; german: Review[]; others: Review[] } = {
+  hungarian: [
     {
       name: 'János',
       date: '2023.07.02.',
@@ -67,7 +67,7 @@ const reviews: { first: Review[]; second: Review[]; third: Review[] } = {
         'Minden tekintetben kiváló választás.A lakás igényes, szép, tiszta, modern,Zárt parkoló.Jó az elhelyezkedése is.A tulajdonos nagyon kedves, segítőkész, informatív.Szuper a kommunikáció is.Nyugodt szívvel ajánlom mindenkinek, mert nem fognak csalódni.Örülünk, hogy ott járhattunk!Köszönünk mindent!',
     },
   ],
-  second: [
+  english: [
     {
       name: 'Claudia',
       date: '2023.04.22.',
@@ -135,7 +135,8 @@ const reviews: { first: Review[]; second: Review[]; third: Review[] } = {
         'Zsuzsanna, the host, is super friendly and will help you with anything you need! The appartment is tidy, clean and well equipped. The loaction is also great, as it has a bakery right next door, as well as a super-market. Can only recommend!',
     },
   ],
-  third: [],
+  german: [],
+  others: [],
 };
 
 export const ReviewPanel = () => {
@@ -145,22 +146,28 @@ export const ReviewPanel = () => {
   return (
     <div className={'flex flex-col gap-4 overflow-x-clip w-full'}>
       <ReviewPanelRow
-        reviews={reviews.first}
+        reviews={reviews.hungarian}
         pauseAnimation={hoverCounter !== 0}
         updateHoverCounter={setHoverCounter}
         animationOffset={200}
       />
       <ReviewPanelRow
-        reviews={reviews.second}
+        reviews={reviews.english}
         pauseAnimation={hoverCounter !== 0}
         updateHoverCounter={setHoverCounter}
         animationOffset={0}
       />
       <ReviewPanelRow
-        reviews={reviews.third}
+        reviews={reviews.german}
         pauseAnimation={hoverCounter !== 0}
         updateHoverCounter={setHoverCounter}
-        animationOffset={0}
+        animationOffset={100}
+      />
+      <ReviewPanelRow
+        reviews={reviews.others}
+        pauseAnimation={hoverCounter !== 0}
+        updateHoverCounter={setHoverCounter}
+        animationOffset={100}
       />
     </div>
   );
