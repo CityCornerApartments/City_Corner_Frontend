@@ -16,7 +16,7 @@ export const ReviewCard = ({ review, updateHoverCounter }: ReviewCardProps) => {
 
   return (
     <div
-      className={'min-w-[25rem] max-w-[30rem] max-h-[170px] group hover:z-20'}
+      className={'min-w-[25rem] max-w-[25rem] max-h-[170px] group hover:z-20'}
       onMouseEnter={() => updateHoverCounter(1)}
       onMouseLeave={() => updateHoverCounter(-1)}
     >

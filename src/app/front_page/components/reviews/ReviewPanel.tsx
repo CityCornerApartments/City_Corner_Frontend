@@ -144,13 +144,24 @@ export const ReviewPanel = () => {
 
   return (
     <div className={'flex flex-col gap-4 overflow-x-clip w-full'}>
-      <ReviewPanelRow reviews={reviews.first} pauseAnimation={hoverCounter !== 0} updateHoverCounter={setHoverCounter} />
+      <ReviewPanelRow
+        reviews={reviews.first}
+        pauseAnimation={hoverCounter !== 0}
+        updateHoverCounter={setHoverCounter}
+        animationOffset={4}
+      />
       <ReviewPanelRow
         reviews={reviews.second}
         pauseAnimation={hoverCounter !== 0}
         updateHoverCounter={setHoverCounter}
+        animationOffset={0}
       />
-      <ReviewPanelRow reviews={reviews.third} pauseAnimation={hoverCounter !== 0} updateHoverCounter={setHoverCounter} />
+      <ReviewPanelRow
+        reviews={reviews.third}
+        pauseAnimation={hoverCounter !== 0}
+        updateHoverCounter={setHoverCounter}
+        animationOffset={7}
+      />
     </div>
   );
 };
