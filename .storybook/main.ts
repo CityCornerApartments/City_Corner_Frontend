@@ -1,12 +1,17 @@
 import type { StorybookConfig } from '@storybook/react-webpack5';
 
-
 const config = {
   stories: ['../src/app/**/*.stories.@(js|jsx|ts|tsx|mdx)'],
   addons: [
     '@storybook/addon-essentials',
     '@storybook/addon-interactions',
     '@nx/react/plugins/storybook',
+    {
+      name: '@storybook/addon-styling',
+      options: {
+        postCss: true,
+      },
+    },
   ],
   framework: {
     name: '@storybook/react-webpack5',

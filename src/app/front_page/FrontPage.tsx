@@ -1,5 +1,11 @@
+import { FrontPageIntroduction } from './components/introduction/FrontPageIntroduction';
+
 export const FrontPage = () => {
-  return <div>Front Page</div>;
+  return (
+    <div>
+      <FrontPageIntroduction />
+    </div>
+  );
 };
 
 export default FrontPage;
