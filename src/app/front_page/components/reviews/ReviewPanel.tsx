@@ -148,7 +148,7 @@ export const ReviewPanel = () => {
         reviews={reviews.first}
         pauseAnimation={hoverCounter !== 0}
         updateHoverCounter={setHoverCounter}
-        animationOffset={4}
+        animationOffset={200}
       />
       <ReviewPanelRow
         reviews={reviews.second}
@@ -160,7 +160,7 @@ export const ReviewPanel = () => {
         reviews={reviews.third}
         pauseAnimation={hoverCounter !== 0}
         updateHoverCounter={setHoverCounter}
-        animationOffset={7}
+        animationOffset={0}
       />
     </div>
   );

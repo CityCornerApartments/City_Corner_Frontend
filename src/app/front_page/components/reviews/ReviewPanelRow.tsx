@@ -37,7 +37,7 @@ export const ReviewPanelRow = ({
         transition: 'transform 500ms ease-out',
       }}
     >
-      <div className={`left-[${animationOffset}]`}>
+      <div style={{ transform: `translateX(${-animationOffset}px)` }}>
         <div
           style={{
             '--animationWidth': firstReviewPartWidth + 'px',
