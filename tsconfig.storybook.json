@@ -27,5 +27,5 @@
     "src/**/*.stories.mdx",
     ".storybook/*.js",
     ".storybook/*.ts"
-  ]
+, "src/app/front_page/components/header/FrontPageHeaderButton.stories.tsx"  ]
 }
