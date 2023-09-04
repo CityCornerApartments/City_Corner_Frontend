@@ -1,0 +1,40 @@
+name: Publish Storybook
+
+on:
+  push:
+    branches: [dev]
+
+jobs:
+  build-storybook:
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      contents: write
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Use Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '18'
+
+      - name: Setup Cache
+        uses: actions/cache@v3
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: ${{ runner.os }}-node-
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build Storybook
+        run: npm run storybook:build
+
+      - name: Deploy Storybook to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist/storybook/city-corner-frontend
+          publish_branch: gh-pages
