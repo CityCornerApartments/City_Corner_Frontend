@@ -1,7 +1,11 @@
 import FrontPage from './front_page/FrontPage';
 
 export function App() {
-  return <FrontPage />;
+  return (
+    <div className={'<FrontPage />'}>
+      <FrontPage />
+    </div>
+  );
 }
 
 export default App;
