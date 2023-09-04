@@ -1,8 +1,19 @@
 import type { Meta } from '@storybook/react';
 import { ReviewCard } from './ReviewCard';
+import { Countries } from './Review';
 
-const meta: Meta<typeof ReviewCard> = {
-  component: ReviewCard,
+const ReviewCardStory = (props: {
+  name: string;
+  date: Date;
+  reviewNumber: number;
+  reviewText: string;
+  country: Countries;
+}) => {
+  return <ReviewCard review={props} />;
+};
+
+const meta: Meta<typeof ReviewCardStory> = {
+  component: ReviewCardStory,
   title: 'Review Card',
   argTypes: {
     date: {

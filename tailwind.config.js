@@ -15,6 +15,7 @@ module.exports = {
       'color-accent': '#4e7aa6',
       'color-booking': '#003b95',
       'color-white': '#ffffff',
+      transparent: '#ffffff00',
     },
     extend: {
       keyframes: {
@@ -25,6 +26,10 @@ module.exports = {
       },
       animation: {
         reviews: 'reviewsTransition var(--animationSpeed) linear infinite',
+      },
+      boxShadow: {
+        'top-bottom': 'inset 0 10px 20px -10px rgba(0, 0, 0, 0.3), inset 0 -10px 20px -10px rgba(0, 0, 0, 0.3)',
+        'top-bottom-large': 'inset 0 15px 30px -15px rgba(0, 0, 0, 0.5), inset 0 -15px 30px -15px rgba(0, 0, 0, 0.5)',
       },
     },
   },

@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta } from '@storybook/react';
 import FrontPage from './FrontPage';
 
 const meta: Meta<typeof FrontPage> = {
@@ -6,12 +6,7 @@ const meta: Meta<typeof FrontPage> = {
   title: 'FrontPage',
 };
 export default meta;
-type Story = StoryObj<typeof FrontPage>;
 
 export const Primary = {
-  args: {},
-};
-
-export const Heading: Story = {
   args: {},
 };

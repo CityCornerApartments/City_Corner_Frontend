@@ -1,24 +1,24 @@
 import { Card, Avatar } from 'antd';
 import Flag from 'react-world-flags';
 import { Review } from './Review';
+import { BookingRating } from './BookingRating';
 
 export interface ReviewCardProps {
   review: Review;
-  updateHoverCounter?: (number) => void;
+  updateHoverCounter?: (number: number) => void;
 }
 
 export const ReviewCard = ({ review, updateHoverCounter }: ReviewCardProps) => {
   const { name, country, reviewNumber, date, reviewText } = review;
 
-  const roundedNumber = Math.round(reviewNumber * 10) / 10;
   const dateObj = typeof date === 'object' ? date : new Date(date);
   const isLongReviewText = review.reviewText.length > 600;
 
   return (
     <div
       className={'min-w-[25rem] max-w-[25rem] max-h-[170px] group hover:z-20'}
-      onMouseEnter={() => updateHoverCounter(1)}
-      onMouseLeave={() => updateHoverCounter(-1)}
+      onMouseEnter={() => updateHoverCounter !== undefined && updateHoverCounter(1)}
+      onMouseLeave={() => updateHoverCounter !== undefined && updateHoverCounter(-1)}
     >
       <Card
         className={
@@ -40,9 +40,7 @@ export const ReviewCard = ({ review, updateHoverCounter }: ReviewCardProps) => {
               </div>
             </div>
           </div>
-          <div className={'bg-color-booking text-color-white rounded-r-md rounded-tl-md'}>
-            <div className={'h-10 w-10 text-lg flex justify-center items-center font-bold'}>{roundedNumber}</div>
-          </div>
+          <BookingRating rating={reviewNumber} />
         </div>
         <div className={'h-3'}></div>
         <div className={'line-clamp-3 text-ellipsis group-hover:line-clamp-none break-words'}>{reviewText}</div>

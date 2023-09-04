@@ -1,10 +1,10 @@
 import Review, { ReviewCard } from './ReviewCard';
-import { useEffect, useRef, useState } from 'react';
+import { CSSProperties, RefObject, useEffect, useRef, useState } from 'react';
 
 export interface ReviewPanelRowProps {
   reviews: Review[];
   pauseAnimation: boolean;
-  updateHoverCounter: (number) => void;
+  updateHoverCounter: (number: number) => void;
   animationOffset: number;
 }
 
@@ -39,15 +39,18 @@ export const ReviewPanelRow = ({
     >
       <div style={{ transform: `translateX(${-animationOffset}px)` }}>
         <div
-          style={{
-            '--animationWidth': firstReviewPartWidth + 'px',
-            '--animationSpeed': `${firstReviewPartWidth * 15}ms`,
-            transition: 'animation-play-state 300ms',
-            animationPlayState: pauseAnimation ? 'paused' : 'running',
-          }}
+          style={
+            {
+              '--animationWidth': firstReviewPartWidth + 'px',
+              '--animationSpeed': `${firstReviewPartWidth * 15}ms`,
+              transition: 'animation-play-state 300ms',
+              animationPlayState: pauseAnimation ? 'paused' : 'running',
+            } as CSSProperties
+          }
           className={'flex gap-4 animate-reviews'}
         >
-          <div className={'flex gap-4'} key={-1} ref={firstReviewPartRef}>
+          {/* Easy type conversion */}
+          <div className={'flex gap-4'} key={-1} ref={firstReviewPartRef as unknown as RefObject<HTMLDivElement>}>
             {reviews.map((r) => (
               <ReviewCard review={r} updateHoverCounter={updateHoverCounter} />
             ))}
