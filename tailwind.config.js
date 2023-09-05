@@ -15,6 +15,7 @@ module.exports = {
       'color-accent': '#4e7aa6',
       'color-booking': '#003b95',
       'color-white': '#ffffff',
+      'color-black': '#000',
       transparent: '#ffffff00',
     },
     extend: {
