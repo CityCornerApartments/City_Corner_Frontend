@@ -1,18 +1,18 @@
 export const FrontPageIntroduction = () => {
   return (
     <div className={'bg-gradient-to-r from-color-accent to-color-primary h-screen w-full relative'}>
-      <div className={'max-sm:break-all flex w-full h-full items-end pb-16'}>
+      <div className={'flex w-full h-full items-end pb-16'}>
         <div className={'grid justify-between gap-x-4'}>
           <div className={'pl-3 md:pl-10'}>
-            <div className={'sm:text-4xl md:text-6xl font-bold flex flex-col gap-4'}>
+            <div className={'text-5xl md:text-6xl font-bold flex flex-col gap-4'}>
               <div>Welcome</div>
               <div>To</div>
-              <div className={'capitalize font-extrabold text-5xl md:text-8xl'}>City Corner Apartments</div>
+              <div className={'capitalize font-extrabold text-6xl md:text-8xl'}>City Corner Apartments</div>
             </div>
           </div>
           <div className={'w-[15rem] md:pr-20 hidden lg:block'}>
             <div className={'h-full flex content-end items-end'}>
-              <svg viewBox="0 0 200 350" xmlns="http://www.w3.org/2000/svg">
+              {/*<svg viewBox="0 0 200 350" xmlns="http://www.w3.org/2000/svg">
                 <rect
                   x="7"
                   y="10"
@@ -65,11 +65,11 @@ export const FrontPageIntroduction = () => {
                     strokeWidth: '5px',
                   }}
                 />
-              </svg>
+              </svg>*/}
             </div>
           </div>
           <div className={'col-span-2 hidden lg:block'}>
-            <div className={'w-screen h-2 bg-color-black'}></div>
+            {/* <div className={'w-screen h-2 bg-color-black'}></div>*/}
           </div>
         </div>
       </div>
