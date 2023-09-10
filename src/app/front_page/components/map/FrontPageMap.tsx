@@ -10,7 +10,7 @@ export const FrontPageMap = () => {
           height="500px"
           allowFullScreen
           allow="geolocation"
-          style={{ maxWidth: '95%' }}
+          style={{ maxWidth: '95%', maxHeight: '60vh' }}
           src="//umap.openstreetmap.fr/en/map/city-corner-apartments_958350?scaleControl=true&miniMap=false&scrollWheelZoom=true&zoomControl=true&allowEdit=false&moreControl=true&searchControl=null&tilelayersControl=null&embedControl=null&datalayersControl=false&onLoadPanel=undefined&captionBar=false&captionMenus=false#16/47.8768/17.2769"
         ></iframe>
       </div>

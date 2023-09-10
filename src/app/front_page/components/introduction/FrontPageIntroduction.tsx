@@ -1,7 +1,7 @@
 export const FrontPageIntroduction = () => {
   return (
     <div className={'bg-gradient-to-r from-color-accent to-color-primary h-screen w-full relative'}>
-      <div className={'flex w-full h-full items-end pb-16'}>
+      <div className={'flex w-full h-full items-end pb-20'}>
         <div className={'grid justify-between gap-x-4'}>
           <div className={'pl-3 md:pl-10'}>
             <div className={'text-5xl md:text-6xl font-bold flex flex-col gap-4'}>
