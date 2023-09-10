@@ -2,7 +2,7 @@ import FrontPage from './front_page/FrontPage';
 
 export function App() {
   return (
-    <div className={'<FrontPage />'}>
+    <div>
       <FrontPage />
     </div>
   );
